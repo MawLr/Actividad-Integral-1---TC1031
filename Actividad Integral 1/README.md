@@ -4,6 +4,7 @@
 ### Consideraciones
 
 - Estrictamente debe seguirse el formato en «prueba.txt» para la correcta lectura de archivos, ya que se lee separado por _:_ y _,_
+- Siguiendo el formato anterior, el archivo **UNICAMENTE puede llevar 28 dígitos separados por comas**, de preferencia separado por semanas
 - Si el archivo de prueba se encuentra en la misma carpeta del proyecto se puede ingresar el nombre sin la ruta de acceso
 - El proyecto fue hecho en Xcode, por lo que es posible que exista conflicto con la generación de archivos, se recomienda discreción (ya fue probado y funciona en repl.it)
 
