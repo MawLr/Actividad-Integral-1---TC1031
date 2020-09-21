@@ -14,9 +14,19 @@ las temperaturas de menor a mayor al igual que buscar rangos de las existentes.
 
 ### ¿Cómo funciona?
 
-Siguiendo el formato de ejemplo en el archivo «prueba.txt», el programa es capaz de hacer busquedas por rangos de temperaturas existentes y ordenar las temperaturas del mes registrado generando un archivo nuevo con las ordenadas.
+Siguiendo el formato de ejemplo en el archivo «prueba.txt», el programa es capaz de hacer busquedas por rangos de temperaturas existentes y ordenar las temperaturas del mes 
+registrado generando un archivo nuevo con las ordenadas.
 
 ## Análisis de complejidad temporal
+
+### main.cpp
+El main comienza desplegando un menú switch con 5 cases, los cuales son utilizados para poder leer el archivo, ordenarlo, buscar por rango y generar el archivo ordenado,
+para poder leer los datos numericos del archivo se hizo uso de un ciclo _for_ que se encarga de obtener los datos numericos separados por coma e ingresarlos a un array, 
+la complejidad temporal de éste es de O(n), es decir, lineal, pues to tienen mayor complejidad; una vez los datos son almacenados en el array se usa la propiedad _stoi_ para 
+convertir los caracteres a enteros y poder meterlos al vector tmpVec haciendo uso de la propiedad _push_back_, también se almacena el mes y la semana en distintas variables pero 
+no se hace uso contundente e ellas; con los datos ya en el vector se hace uso de la función _ordenaBurbuja_ cuya complejidad se ve analizada en otra sección de éste README,
+una vez ordenados los datos es posible hacer uso de la función _busqBinaria_ para buscar por un rango definido todas las instancias de temperaturas, la complejidad temporal de ésta igualmente está detallada seguido de éste encabezado; por último se genera el archivo nuevamente con un sencillo cilo _for_ lineal que imprime los datos haciendo uso
+de la propiedad _.at(i)_.
 
 ### busqBinaria
 El algorítmo en ésta función busca ordenar de manera ascendiente la posición del vector en la que se deberia
