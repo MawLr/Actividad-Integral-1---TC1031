@@ -34,13 +34,14 @@ un archivo que contiene la lista con sus modificaciones, en caso de ser alterada
 _Las complejidades de las funciones pasadas se encuentran en su respectiva entrega_
 
 ### main.cpp
-El main comienza desplegando un menú switch con 6 cases, los cuales son utilizados para poder leer el archivo, ordenarlo, buscar por rango, generar el archivo ordenado
-y modificar la lista ligada, para poder leer los datos numericos del archivo se hizo uso de un ciclo _for_ que se encarga de obtener los datos numericos separados por coma e ingresarlos a un array, 
-la complejidad temporal de éste es de O(n), es decir, lineal, pues to tienen mayor complejidad; una vez los datos son almacenados en el array se usa la propiedad _stoi_ para 
-convertir los caracteres a enteros y poder meterlos al vector tmpVec haciendo uso de la propiedad _push_back_, también se almacena el mes y la semana en distintas variables pero 
-no se hace uso contundente e ellas; con los datos ya en el vector se hace uso de la función _ordenaBurbuja_ cuya complejidad se ve analizada en otra sección de éste README,
-una vez ordenados los datos es posible hacer uso de la función _busqBinaria_ para buscar por un rango definido todas las instancias de temperaturas, la complejidad temporal de ésta 
-igualmente está detallada seguido de éste encabezado; por último se genera el archivo nuevamente con un sencillo cilo _for_ lineal que imprime los datos haciendo usode la propiedad _.at(i)_.
+El main comienza desplegando un menú switch con 6 cases, los cuales son utilizados para poder leer el archivo, ordenarlo, buscar por rango, generar el archivo 
+ordenado y modificar la lista ligada, en este caso realmente sólo se utilizaron las funciones _find, add, remove, toString y find_, pues a diferencia de la entrega
+pasada, en este caso a pesar de aún estar presentes las cosas de la entrega anterior, la manera en la que se añadieron los datos fue mucho más sencillo, recordemos
+que desde la entrega pasada los datos leídos del archivo eran primeramente almacenados en un array y después comvertidos a enteros mediante el uso de _stoi_, pues
+en este caso lo único que se tuvo que hacer fue ingresar esos datos ya convertidos a la función _add_ de la lista, y así se generaba la lista de temperaturas
+lista para ser modificada y/o impresa en un archivo, esto se hace mediante la opción del menú de modificar lista, dentro de ese menú podemos añadir valores haciendo
+uso de la función _add_, eliminar valores con la función _remove_, reemplazar valores con la función _update_ y encontrar la posición de un valor con la función
+_find_.
 
 ### Find
 El algoritmo busca encontrar un número en un índice especificado haciendo uso de un ciclo _while_ que recorre toda la lista hasta encontrar el que contiene
