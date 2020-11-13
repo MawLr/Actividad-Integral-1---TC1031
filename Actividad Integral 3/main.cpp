@@ -238,7 +238,8 @@ int main() {
                     cout << "(2) Desplegar árbol" << endl;
                     cout << "(3) Eliminar elemento" << endl;
                     cout << "(4) Encontrar elemento" << endl;
-                    cout << "(5) Regresar al menú" << endl;
+                    cout << "(5) Generar Archivo" << endl;
+                    cout << "(6) Regresar al menú" << endl;
                     cin >> opt;
                     
                     switch(opt){
@@ -267,8 +268,22 @@ int main() {
                                 cout << "El valor no se encuentra en el árbol..." << endl;
                             };
                                 break;
-                                 
+                            
                             case 5:
+                            // Generación de nuevo archivo esta vez con la lista de temperaturas, a diferencia del del vector ordenado
+                            
+                            cout << "Generando bitacora árbol de temperaturas: " << endl;
+                            cout << '\n';
+                            output.open("arbol.txt");
+                            if (output.is_open()){
+                                output << splay.print_tree();
+                                cout << splay.print_tree()<<endl;
+                            }
+                            output.close();
+                            break;
+                            
+                                 
+                            case 6:
                                 extOpt1 = true;
                                 break;
                         }
