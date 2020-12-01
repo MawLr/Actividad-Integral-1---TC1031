@@ -11,6 +11,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <cstring>
 #include "sorts.h"
 
 using namespace std;
@@ -26,11 +27,29 @@ void displayV(vector <int> const &tmpVec){
     }
 }
 
+template <class T>
+string arrayToString(const vector<T> &v) {
+	stringstream aux;
+
+	aux << "[" << v[0];
+	for (int i = 1; i < v.size(); i++) {
+		aux << ", " << v[i];
+	}
+	aux << "]";
+	return aux.str();
+}
+
 int main() {
 
     //Se crea objeto sorts para trabajar con este
     Sorts<int> sorts;
-    
+    Sorts<int> testsorts;
+    int tArray[] = {21, 78, 37, 26, 99, 77, 55, 52, 23, 14};
+    vector<int> original1 (tArray, tArray + sizeof(tArray) / sizeof(int) ); 
+    string ans = "[14, 21, 23, 26, 37, 52, 55, 77, 78, 99]";
+    vector<int> prueba;
+
+    bool fileCheck = false;
     ifstream inFile;
     ofstream output;
     string fileName, line;
@@ -50,9 +69,12 @@ int main() {
         cout << "(2) Ordenar Datos"<< endl;
         cout << "(3) Buscar por rangos"<<endl;
         cout << "(4) Generar Archivo" << endl;
-        cout << "(5) Salir" << endl;
+        cout << "(5) Casos de Prueba" << endl;
+        cout << "(6) Salir" << endl;
         cin>> option;
-        
+        if (option == 1){
+          fileCheck = true;
+        }
         switch(option){
             case 1:
                 // Por el curioso caso de Xcode, se decidio permitir al usuario escrivir el nombre del archivo
@@ -88,6 +110,11 @@ int main() {
                 break;
                 
             case 2:
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 // Ordenamiento y depsliegue de datos ordenados
                 cout << "N. de Temperaturas: " << tmpVec.size()<< endl;
                 sorts.ordenaBurbuja(tmpVec);
@@ -97,6 +124,11 @@ int main() {
                 break;
             
             case 3:
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 // Busqueda por rangos, en este caso las temperaturas existentes en ese rango
                 int inicio, fin;
                 cout << "Rango Inicial: " << endl;
@@ -113,6 +145,11 @@ int main() {
                 break;
                 
             case 4:
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 // Almacenamiento de datos ordenados en archivo
                 j = 0;
                 cout << "Generando bitacora ordenada de temperaturas: " << endl;
@@ -134,7 +171,29 @@ int main() {
                 cout << "Archivo Generado Exitosamente"<<endl;
                 cout << '\n';
                 break;
+            
             case 5:
+              prueba = original1;
+              testsorts.ordenaSeleccion(prueba);
+
+              cout << " 1 " <<	(!ans.compare(arrayToString(prueba)) ? "success\n" : "fail\n");
+
+              prueba = original1;
+              testsorts.ordenaBurbuja(prueba);
+
+              cout << " 2 " <<	(!ans.compare(arrayToString(prueba)) ? "success\n" : "fail\n");
+
+              prueba = original1;
+              testsorts.ordenaMerge(prueba);
+
+              cout << " 3 " <<	(!ans.compare(arrayToString(prueba)) ? "success\n" : "fail\n");
+
+              cout << " 4 " <<	(-1 == testsorts.busqSecuencial(prueba, 100) ? "success\n" : "fail\n");
+
+              cout << " 5 " <<	(1 == testsorts.busqBinaria(prueba, 21) ? "success\n" : "fail\n");
+
+              break;
+            case 6:
                 cout << "FIN DE SESIÓN\n";
                 exit = true;
             
