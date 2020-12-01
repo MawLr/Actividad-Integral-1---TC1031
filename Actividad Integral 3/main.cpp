@@ -13,6 +13,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <cstring>
 #include "sorts.h"
 #include "list.h"
 #include "splay.h"
@@ -36,7 +37,13 @@ int main() {
     Sorts<int> sorts;
     List<int> list;
     SplayTree<int> splay;
-    
+    SplayTree<int> testsplay;
+    string in_ans = "";
+    string pre_ans = "";
+    bool found = 0;
+
+    bool fileCheck = false;
+    bool testCheck = true;
     ifstream inFile;
     ofstream output;
     string fileName, line;
@@ -59,9 +66,12 @@ int main() {
         cout << "(4) Generar Archivo" << endl;
         cout << "(5) Modificar Lista" << endl;
         cout << "(6) Modificar Splay Tree" << endl;
-        cout << "(7) Salir" << endl;
+        cout << "(7) Casos de Prueba" << endl;
+        cout << "(8) Salir" << endl;
         cin>> option;
-        
+        if (option == 1){
+          fileCheck = true;
+        }
         switch(option){
             case 1:
                 // Por el curioso caso de Xcode, se decidio permitir al usuario escribir el nombre del archivo
@@ -98,6 +108,11 @@ int main() {
                 break;
                 
             case 2:
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 // Ordenamiento y depsliegue de datos ordenados
                 cout << "N. de Temperaturas: " << tmpVec.size()<< endl;
                 sorts.ordenaBurbuja(tmpVec);
@@ -107,6 +122,11 @@ int main() {
                 break;
             
             case 3:
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 // Busqueda por rangos, en este caso las temperaturas existentes en ese rango
                 int inicio, fin;
                 cout << "Rango Inicial: " << endl;
@@ -123,6 +143,11 @@ int main() {
                 break;
                 
             case 4:
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 // Almacenamiento de datos ordenados en archivo
                 j = 0;
                 cout << "Generando bitacora ordenada de temperaturas: " << endl;
@@ -146,6 +171,11 @@ int main() {
                 break;
             
             case 5:
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 // Todo el caso 5 está dedicado a la entrega integral 2, pues es el uso de listas ligadas,
                 // recordemos que la lista fue generada con los datos que recibió del archivo al principo,
                 // en éste menú están las operaciones que podemos hacer con la lista, igualmente debemos
@@ -222,6 +252,11 @@ int main() {
                 break;
                 
             case 6:
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 // al igual que la entrega anterior, todo el case 6 se dedica enteramente al avance 3, aquí se puede
                 // modificar al splay tree, modificandolo añadiendo los datos, eliminandolos y desplegandolos con el
                 // pequeño menú que hay, también se puede saber si existe un valor en el árbol o no mediante el método
@@ -289,8 +324,40 @@ int main() {
                         }
                     }
                     break;
-                
+
             case 7:
+                if (testCheck == false){
+                  cout << "Los casos de prueba ya fueron ejecutados, correrlos de nuevo causarían sesgo" << endl;
+                  cout << '\n';
+                  break;
+                }
+              testsplay.add(3);
+              in_ans = "[3]";
+              cout << " 1 " <<	(!in_ans.compare(testsplay.inorder()) ? "success\n" : "fail\n");
+
+              testsplay.add(7);
+              testsplay.add(5);
+              testsplay.add(12);
+              in_ans = "[3 5 7 12]";
+              pre_ans = "[12 7 5 3]";
+
+              cout << " 2 " <<	(!in_ans.compare(testsplay.inorder()) ? "success\n" : "fail\n");
+              cout << " 2 " <<	(!pre_ans.compare(testsplay.preorder()) ? "success\n" : "fail\n");
+
+              found = testsplay.find(5);
+              in_ans = "[3 5 7 12]";
+              cout << " 3 " <<	(!in_ans.compare(testsplay.inorder()) ? "success\n" : "fail\n");
+              cout << " 3 " <<	(found == 1 ? "success\n" : "fail\n");
+
+              testsplay.remove(5);
+              in_ans = "[3 7 12]";
+              pre_ans = "[7 3 12]";
+              cout << " 4 " <<	(!in_ans.compare(testsplay.inorder()) ? "success\n" : "fail\n");
+              cout << " 4 " <<	(!pre_ans.compare(testsplay.preorder()) ? "success\n" : "fail\n");
+              cout << " 4 " <<	(found == 1 ? "success\n" : "fail\n");
+              testCheck = false;
+              break;
+            case 8:
                 cout << "FIN DE SESIÓN\n";
                 exit = true;
             
