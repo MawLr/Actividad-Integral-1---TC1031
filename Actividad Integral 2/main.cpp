@@ -34,7 +34,9 @@ int main() {
     //Se crea objeto sorts para trabajar con este
     Sorts<int> sorts;
     List<int> list;
-    
+    List<int> testList;
+    string testAns;
+
     ifstream inFile;
     ofstream output;
     string fileName, line;
@@ -43,6 +45,8 @@ int main() {
     string mes;
     //Se crea vector de trabajo
     vector<int> tmpVec;
+    bool fileCheck = false;
+    bool testCheck = true;
     
     bool exit = false;
     while(exit == false){
@@ -55,9 +59,12 @@ int main() {
         cout << "(3) Buscar por rangos"<<endl;
         cout << "(4) Generar Archivo" << endl;
         cout << "(5) Modificar Lista" << endl;
-        cout << "(6) Salir" << endl;
+        cout << "(6) Casos de Prueba" << endl;
+        cout << "(7) Salir" << endl;
         cin>> option;
-        
+        if (option == 1){
+          fileCheck = true;
+        }
         switch(option){
             case 1:
                 // Por el curioso caso de Xcode, se decidio permitir al usuario escribir el nombre del archivo
@@ -93,6 +100,11 @@ int main() {
                 break;
                 
             case 2:
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 // Ordenamiento y depsliegue de datos ordenados
                 cout << "N. de Temperaturas: " << tmpVec.size()<< endl;
                 sorts.ordenaBurbuja(tmpVec);
@@ -102,6 +114,11 @@ int main() {
                 break;
             
             case 3:
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 // Busqueda por rangos, en este caso las temperaturas existentes en ese rango
                 int inicio, fin;
                 cout << "Rango Inicial: " << endl;
@@ -118,6 +135,11 @@ int main() {
                 break;
                 
             case 4:
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 // Almacenamiento de datos ordenados en archivo
                 j = 0;
                 cout << "Generando bitacora ordenada de temperaturas: " << endl;
@@ -147,7 +169,11 @@ int main() {
                 // recordar que la mayor ventaja de la lista ligada sobre el array es que al utilizar
                 // apuntadores, no requiere de un valor limitante en su tamaño por lo que es mucho más
                 // versatil
-                
+                if (fileCheck == false){
+                  cout << "Se requiere un archivo para poder ejecutar esta opción" << endl;
+                  cout << '\n';
+                  break;
+                }
                 bool extOpt;
                 extOpt = false;
                 while(extOpt == false){
@@ -215,8 +241,38 @@ int main() {
                     }
                 }
                 break;
-                
+
             case 6:
+            if (testCheck == false){
+                  cout << "Los casos de prueba ya fueron ejecutados, correrlos de nuevo causarían sesgo" << endl;
+                  cout << '\n';
+                  break;
+                }
+              testList.add(5);
+              testAns = "[5]";
+              cout << " 1 " <<	(!testAns.compare(testList.toString()) ? "success\n" : "fail\n");
+
+              testList.add(7);
+              testList.add(14);
+              testList.add(21);
+              testAns = "[5, 7, 14, 21]";
+              cout << " 2 " <<	(!testAns.compare(testList.toString()) ? "success\n" : "fail\n");
+
+              cout << " 3 " <<	(3 == testList.find(21) ? "success\n" : "fail\n");
+
+              cout << " 4 " <<	(-1 == testList.find(1) ? "success\n" : "fail\n");
+
+              testList.update(0, 3);
+              testAns = "[3, 7, 14, 21]";
+              cout << " 5 " <<	(!testAns.compare(testList.toString()) ? "success\n" : "fail\n");
+
+              testList.remove(2);
+              testAns = "[3, 7, 21]";
+              cout << " 6 " <<	(!testAns.compare(testList.toString()) ? "success\n" : "fail\n");
+              testCheck = false;
+              break;
+
+            case 7:
                 cout << "FIN DE SESIÓN\n";
                 exit = true;
             
