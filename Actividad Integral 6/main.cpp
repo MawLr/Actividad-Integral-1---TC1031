@@ -85,8 +85,8 @@ int main() {
         int option;
         float sortedb[tmpVec.size()];
         cout << "Selecciona una opción: "<< endl;
-        cout << "(1) Leer archivo"<< endl;
-        cout << "(2) Bucket Sort"<< endl;
+        cout << "(1) Leer archivo de miligrajes"<< endl;
+        cout << "(2) Ordenar miligrajes"<< endl;
         cout << "(3) Generar Archivo" << endl;
         cout << "(4) Casos de Prueba" << endl;
         cout << "(5) Salir" << endl;
