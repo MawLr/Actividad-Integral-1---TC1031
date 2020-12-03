@@ -10,7 +10,11 @@
 
 - Actividad 6: El programa funciona, sin embargo existe un glitch por haber sido compilado en Repl.it, *favor de escribir la ruta del archivo que se desea leer para poder utilizarlo correctamente*
 
-Se anexan pruebas de que el problema está en la localización del archivo al ejecutarlo con g++:
+Se anexan pruebas de que el problema está en la localización del archivo al ejecutarlo con g++, así que es probable que ocurra por algun problema de la terminal, al ser un error 
+de Core Dumped es posible que no se tenga acceso a la memoria, o algo por el estilo, sin embargo el programa corre en distintos compiladores incluyendo los siguientes:
+
+Se toma como consideración el correrlo en ReplIT para poder observar el programa en completo funcionamiento, en caso de que el error persista aún así se cuenta con los casos de 
+prueba:
 
 _En xcode funciona al utilizar ruta de archivo completa:_
 
