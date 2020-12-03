@@ -14,4 +14,4 @@ Se anexan pruebas de que el problema está en la localización del archivo al ej
 
 En xcode funciona al utilizar ruta de archivo completa:
 
-![]()verificacion1.png
+![](verificacion1.png)
