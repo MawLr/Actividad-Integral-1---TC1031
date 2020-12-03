@@ -12,6 +12,14 @@
 
 Se anexan pruebas de que el problema está en la localización del archivo al ejecutarlo con g++:
 
-En xcode funciona al utilizar ruta de archivo completa:
+_En xcode funciona al utilizar ruta de archivo completa:_
 
 ![](verificacion1.png)
+
+_En CodeBlocks funciona sin ningun problema:_
+
+![](verificacion2.jpg)
+
+_En ReplIT funciona igualmente sin ningun problema:_
+
+![](verificacion3.png)
