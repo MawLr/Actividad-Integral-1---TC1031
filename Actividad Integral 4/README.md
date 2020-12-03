@@ -13,10 +13,9 @@ coordenadas.
 
 _Se tomaron en cuenta los comentarios de la entrega pasada y se hizo un case entero para demostrar el uso de grafos de manera de caso de prueba._
 
-Esta entrega es únicamente para demostrar el uso de grafos, el usuario puede leer su propio archivo para utilizar búsquedas de profundidad y de anchura con ellos y puede 
-desplegar las matrices y listas adyacentes, sin embargo, el uso real del programa se observa en el caso 6, pues en este se da un ejemplo de cómo pueden utilizarse los grafos de 
-manera práctica con una simulación de cálculo de rutas de autobus, en este caso desde Querétaro a Monterrey, desplegando así que la rutas más rápida es más cara que la que pasa 
-por más ciudades (nodos).
+Esta entrega es únicamente para demostrar el uso de grafos, el usuario está restringido al archivo de rutas para hacer uso del programa, pues estas rutas predefinidas en los 
+nodos nos permiten visualizar las rutas a seguir tomando un orígen y un destino, haciendo uso de las funciones _BSF() y DSF()_ para obtener las rutas más rápidas y, en este 
+caso, más económicas, obteniendo así un precio diferente.
 
 Igualmente el programa cumple con los requisitos de lectura  y generación de archivos.
 
@@ -46,15 +45,19 @@ En este proyecto estamos haciendo uso del segundo punto.
 _Las complejidades de las funciones pasadas se encuentran en su respectiva entrega_
 
 ### main.cpp
-El main comienza desplegando un menú switch con 9 cases, los cuales son utilizados para poder leer el archivo, imprimir lista adyacente, imprimir matriz adyacente, realizar búsqueda por profundidad, realizar búsuqeda por anchura, generar archivo con lista y matriz adyacente y salir, esto se hace en su mayoría gracias a las funciones _loadGraphList()_, _loadGraphMat()_, _printAdjList(), printAdjMat(), BFS(), DFS()_
+El main comienza desplegando un menú switch con 9 cases, los cuales son utilizados para poder leer el archivo de rutas, imprimir lista adyacente, imprimir matriz adyacente, 
+buscar ruta más rápida, buscar ruta más económica, generar archivo con lista y matriz adyacente y salir, esto se hace en su mayoría gracias a las funciones _loadGraphList()_, 
+_loadGraphMat()_, _printAdjList(), printAdjMat(), BFS(), DFS()_, las rutas se calculan con _BFS() y DFS()_, se le pregunta al usuario el origen y el destino de su viaje en ambas 
+opciones, del usuario ha de escribir el código de la ciudad (desplegado en rutas), con una serie de ciclos _if_ se obtiene el valor correspondiente a esa ciudad en la rutas de 
+grafos y ya se tiene una cuota fija dependiendo hacia donde vaya.
 
 ## loadGraphMat
-El algoritmo toma V + A pasos para cargar los arcos de un grafo para después almacenarlo en una matríz de adyacencia puesto que recibe como parametro V igual al número de vertices 
-y A siendo el número de arcos, dicho lo anterior podemos decir que su complejidad temporal es O(V + A) para el peor de los casos.
+El algoritmo toma V + A pasos para cargar los arcos de un grafo para después almacenarlo en una matríz de adyacencia puesto que recibe como parametro V igual al número de 
+vertices y A siendo el número de arcos, dicho lo anterior podemos decir que su complejidad temporal es O(V + A) para el peor de los casos.
 
 ## loadGraphList
-El algoritmo toma V + A pasos para cargar los arcos de un grafo para después almacenarlo en una matríz de adyacencia puesto que recibe como parametro V igual al número de vertices 
-y A siendo el número de arcos, dicho lo anterior podemos decir que su complejidad temporal es O(V + A) para el peor de los casos.
+El algoritmo toma V + A pasos para cargar los arcos de un grafo para después almacenarlo en una matríz de adyacencia puesto que recibe como parametro V igual al número de 
+vertices y A siendo el número de arcos, dicho lo anterior podemos decir que su complejidad temporal es O(V + A) para el peor de los casos.
 
 ## DFS
 El algoritmo toma V + A de pasos para almacenar en una lista de nodos visitados y el camino recorrido DFS de profundiad de un grafo comenzando por el nodo inicial y teniendo un 
