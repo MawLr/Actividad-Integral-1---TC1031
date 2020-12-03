@@ -1,8 +1,8 @@
 # Actividad Integral 6 - A01706212
 
-### Bucket Sort
+## Bucket Sort
 
-## ¿En qué consiste?
+### ¿En qué consiste?
 
 El Bucket Sort, también conocido como Bin Sort o ordenamiento por casilleros es un algorítmo de ordenamiento que distribuye todos sus elementos entre un número de casilleros
 (buckets), para poder hacer esto tiene condicionales para evitar meter un dato en dos casilleros, los casilleros después se ordenan individualmente, este algoritmo es útil cuando 
@@ -20,16 +20,25 @@ medición de piezas, las edades de diferentes personas, etc.
 
 ## ¿Qué se hizo?
 
+Se hizo un programa de ordenamiento de miligrajes, por lo que en especifico este bucket sort estará trabajando con floats, se recibe un archivo con los miligrajes en desorden 
+llamado «btest.txt» conteniendo 5 miligrajes en formato «0.000, 0.000, 0.000, 0.000, 0.000», al ser leído el archivo estos se pasan a un vector temporal que nos permite 
+utilizarlos en cualquier parte del programa, los datos se pasan de nuevo a un arreglo para hacer el ordenamiento y se despliegan ya ordenados los datos, una vez se hace esto se 
+puede generar un archivo con los datos ordenados llamado «BUCKET.txt».
+
 ### Análisis de complejidad temporal
 
 _Las complejidades de las funciones pasadas se encuentran en su respectiva entrega_
 
 ## main.cpp
-El main comienza desplegando un menú switch con 6 cases, los cuales son utilizados para poder leer el archivo, leer la tabla hash, modificar los datos hash, generar el archivo y 
-los casos de prueba (case 6 es salir), en este caso realmente sólo se utilizaron las funciones _put() y toString()_ del _chain.h_, 
-recordemos que desde la entrega 1 los datos leídos del archivo eran primeramente almacenados en un array y después comvertidos a enteros mediante el uso 
-de _stoi_, pues en este caso lo único que se tuvo que hacer fue ingresar esos datos ya convertidos a la función _put_ del hash junto con _mes_ (mes, num), y así se generaba el 
-chain hash de temperaturas con meses listo para ser modificado y/o impreso, esto se hace mediante la opción del menú de leer la tabla hash o modificarla, dentro de ese menú 
-podemos modificar valores haciendo uso de la función _put_ nuevamente, pero sólo nos permite modificar meses existentes en la tabla, o sea, alguno de los 12 del año.
+El main comienza desplegando un menú switch con 5 cases, los cuales son utilizados para poder leer el archivo, ordenar los datos, generar el archivo ordenado, y los casos de 
+prueba (opción 5 es salir), en este caso realmente sólo se utilizó la función _bucketSort()_ para ordenar los datos, para poder hacer uso de la función los datos debieron 
+primero ser almacenados en un vector temporal llenado con los datos haciendo uso de la función _stof_ para poder urilizarlos fuera de su case de lectura del archivo, después 
+sólo se tuvo que pasar el vector a un arreglo y obtener su tamaño, para poder pasar los datos a un archivo el arreglo ordenado se pasó a otro vector temporal y éste es el que 
+vemos al generar nuestro archivo ordenado.
 Con todo esto podemos decir que la complejidad temporal del main es O(1), es decir, lineal para el peor de los casos, pues solamente recibe entradas para hacer funciones de 
 manera lineal.
+
+### bucketsort.h
+
+## bucketSort
+El algoritmo busca ordenar los datos dividiendolos en varios «baldes» y luego juntando esos datos ordenados recorriendo n pasos haciendo uso de varios ciclos _for_, por lo que su complejidad temporal usualmente es de O(n+k), pues va a depender mucho de la cantidad de baldes que se estén creando para el ordenamiento de datos, este algoritmo puede ser extremadamente rápido o puede comenzar a utilizar demasiada memoria auxiliar, todo depende de los baldes, dicho esto la complejidad temporal para el peor de los casos es de O(n^2).
