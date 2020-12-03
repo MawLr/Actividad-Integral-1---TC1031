@@ -16,7 +16,7 @@ _En xcode funciona al utilizar ruta de archivo completa:_
 
 ![](verificacion1.png)
 
-_En CodeBlocks funciona sin ningun problema:_
+_En CodeBlocks funciona sin ningun problema sin necesidad de la ruta, suponiendo que está en la misma carpeta:_
 
 ![](verificacion2.jpg)
 
