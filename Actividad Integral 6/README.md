@@ -16,6 +16,8 @@ rápido que otros algoritmos de ordenamiento, aunque este asume que los datos so
 medicina y se desea ponerlos en orden pero de igual manera el algoritmo puede ser utilizado para ordenar las diferencias entre medidas de temperatura, los errores de márgen en 
 medición de piezas, las edades de diferentes personas, etc.
 
+![](bucket.png)
+
 ## ¿Qué se hizo?
 
 ### Análisis de complejidad temporal
