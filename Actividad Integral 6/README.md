@@ -17,6 +17,7 @@ medicina y se desea ponerlos en orden pero de igual manera el algoritmo puede se
 medición de piezas, las edades de diferentes personas, etc.
 
 ![](bucket.png)
+(Así es como se ve lo que hace este algoritmo)
 
 ### ¿Qué se hizo?
 
